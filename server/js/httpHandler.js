@@ -27,8 +27,9 @@ function randomMove() {
   }
 
   if(req.method === 'POST'){
+    console.log('POST HIT');
     var data = '';
-    function callback(message, resp) {
+    function callback(message, res) {
       message.objectId = ++objectIdCounter;
       messages.push(message);
       sendResponse(res, {objectId: message.objectId}, 201);
@@ -37,7 +38,7 @@ function randomMove() {
       data += chunk;
     });
     req.on('end', function() {
-      callback(data);
+      callback(data, res);
     });
     // res.end();
   }

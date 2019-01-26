@@ -18,6 +18,7 @@ const HttpFetcher = {
   },
 
   readCommand: function(message) {
+    // console.log('your mom');
     $.ajax({
       url: HttpFetcher.server,
       type: 'POST',
